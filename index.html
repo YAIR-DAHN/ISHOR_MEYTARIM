@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יום גיבוש צוות מיתרים - מתבדרות ברוח</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <!-- כאן יוכנס הלוגו -->
+                <img src="./img/logo.png" alt="לוגו מיתרים" class="logo">
+            </div>
+            <h1>מתבדרות ברוח</h1>
+            <h2>יום גיבוש צוות מיתרים תשפ"ה</h2>
+        </header>
+
+        <div class="countdown-container">
+            <h3 class="countdown-title">מתחילות בעוד...</h3>
+            <div id="countdown">
+                <div class="time-block">
+                    <span class="days">0</span>
+                    <span class="label">ימים</span>
+                </div>
+                <div class="time-block">
+                    <span class="hours">0</span>
+                    <span class="label">שעות</span>
+                </div>
+                <div class="time-block">
+                    <span class="minutes">0</span>
+                    <span class="label">דקות</span>
+                </div>
+                <div class="time-block">
+                    <span class="seconds">0</span>
+                    <span class="label">שניות</span>
+                </div>
+            </div>
+        </div>
+
+        <button id="registerBtn" class="register-btn">אשרי הגעתך</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>אישור הגעה</h3>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">שם מלא:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">מספר טלפון:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <button type="submit" class="submit-btn">אישור</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
