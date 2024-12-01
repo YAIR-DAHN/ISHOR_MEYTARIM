@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -45,6 +46,12 @@
         </div>
 
         <button id="registerBtn" class="register-btn">אשרי הגעתך</button>
+
+        <footer class="footer">
+            <div class="credits" onclick="showContactModal()">
+                מערכת זו נבנתה ע״י y.d. systems
+            </div>
+        </footer>
     </div>
 
     <!-- Modal -->
@@ -63,6 +70,31 @@
                 </div>
                 <button type="submit" class="submit-btn">אישור</button>
             </form>
+        </div>
+    </div>
+
+    <!-- מודאל ליצירת קשר -->
+    <div id="contactModal" class="modal contact-modal">
+        <div class="modal-content contact-content">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <h3>צור קשר</h3>
+            <div class="contact-options">
+                <a href="https://wa.me/972583730000" target="_blank" rel="noopener" class="contact-option whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                    <small>058-3730000</small>
+                </a>
+                <a href="tel:+972583730000" class="contact-option phone">
+                    <i class="fas fa-phone"></i>
+                    <span>טלפון</span>
+                    <small>058-3730000</small>
+                </a>
+                <a href="mailto:yairdahn@gmail.com" class="contact-option email">
+                    <i class="fas fa-envelope"></i>
+                    <span>אימייל</span>
+                    <small>yairdahn@gmail.com</small>
+                </a>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

@@ -16,7 +16,7 @@
 
 body {
     font-family: 'Heebo', sans-serif;
-    background: var(--background-color);
+    /* background: var(--background-color); */
     min-height: 100vh;
     background-image: url('./img/reka.gif');
     background-size: cover;
@@ -112,6 +112,7 @@ h2 {
     color: #8B4513;
     display: block;
     margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .time-block .label {
@@ -696,4 +697,92 @@ body::before {
      
     }
     
+}
+
+@keyframes numberChange {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* עיצוב הפוטר */
+.footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.credits {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.credits:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* עיצוב המודאל */
+.contact-modal .modal-content {
+    max-width: 400px;
+    padding: 2rem;
+}
+
+.contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.contact-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.contact-option i {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    width: 30px;
+}
+
+.contact-option span {
+    font-weight: bold;
+}
+
+.contact-option small {
+    margin-right: auto;
+    opacity: 0.7;
+}
+
+.whatsapp { color: #25D366; }
+.phone { color: #4169E1; }
+.email { color: #EA4335; }
+
+@media (max-width: 768px) {
+    .contact-modal .modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
 }

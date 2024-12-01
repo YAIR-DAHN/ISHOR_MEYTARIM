@@ -84,7 +84,7 @@ form.addEventListener('submit', async (e) => {
         if (response && response.success) {
             showSuccessMessage();
         } else {
-            throw new Error(response.error || 'שגיאה בשליחת הטו��ס');
+            throw new Error(response.error || 'שגיאה בשליחת הטופס');
         }
     } catch (error) {
         console.error('Error:', error);
@@ -126,7 +126,7 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// פונקציה לש��יחת הטופס ל-Google Apps Script
+// פונקציה לשיחת הטופס ל-Google Apps Script
 async function submitForm(name, phone) {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwRhkxAIxBVnD6u2xh_yBfnJaOvjvn09QWDb8rIN_GybVHJ1YUNN24FhBF6JuiYB2AyqA/exec'; // החלף עם ה-URL שלך
     
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// פונ��ציית קונפטי
+// פונציית קונפטי
 function createConfetti() {
     for (let i = 0; i < 50; i++) {
         const confetti = document.createElement('div');
@@ -223,5 +223,26 @@ function initializeWindyText() {
             ).join('')
         }</div>`
     ).join(' ');
+}
+
+// פונקציות למודאל יצירת קשר
+function showContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.style.display = 'block';
+    setTimeout(() => modal.classList.add('show'), 10);
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.classList.remove('show');
+    setTimeout(() => modal.style.display = 'none', 300);
+}
+
+// סגירת המודאל בלחיצה מחוץ לתוכן
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target === modal) {
+        closeContactModal();
+    }
 }
 
