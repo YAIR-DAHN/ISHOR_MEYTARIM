@@ -1,7 +1,6 @@
-// תאריך יום הגיבוש
-const EVENT_DATE = new Date('2024-11-26T08:00:00').getTime();
+// תדכון תאריך היעד
+const EVENT_DATE = new Date('2024-12-26T08:00:00').getTime();
 
-// עדכון ספירה לאחור
 function updateCountdown() {
     const now = new Date().getTime();
     const distance = EVENT_DATE - now;
@@ -11,16 +10,39 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.querySelector('.days').textContent = String(days).padStart(2, '0');
-    document.querySelector('.hours').textContent = String(hours).padStart(2, '0');
-    document.querySelector('.minutes').textContent = String(minutes).padStart(2, '0');
-    document.querySelector('.seconds').textContent = String(seconds).padStart(2, '0');
+    // אנימציה לעדכון המספרים
+    updateTimeBlockWithAnimation('.days', days);
+    updateTimeBlockWithAnimation('.hours', hours);
+    updateTimeBlockWithAnimation('.minutes', minutes);
+    updateTimeBlockWithAnimation('.seconds', seconds);
 
     if (distance < 0) {
         clearInterval(countdownInterval);
-        document.getElementById('countdown').innerHTML = 'יום הגיבוש התחיל!';
+        document.getElementById('countdown').innerHTML = '<h2>יום הגיבוש התחיל!</h2>';
     }
 }
+
+function updateTimeBlockWithAnimation(selector, value) {
+    const element = document.querySelector(selector);
+    const currentValue = parseInt(element.textContent);
+    const newValue = String(value).padStart(2, '0');
+    
+    if (currentValue !== value) {
+        element.style.transform = 'translateY(-20px)';
+        element.style.opacity = '0';
+        
+        setTimeout(() => {
+            element.textContent = newValue;
+            element.style.transform = 'translateY(0)';
+            element.style.opacity = '1';
+        }, 300);
+    }
+}
+
+// הוספת סגנונות מעבר לאלמנטים של הספירה לאחור
+document.querySelectorAll('.time-block span').forEach(el => {
+    el.style.transition = 'all 0.3s ease-out';
+});
 
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
@@ -62,7 +84,7 @@ form.addEventListener('submit', async (e) => {
         if (response && response.success) {
             showSuccessMessage();
         } else {
-            throw new Error(response.error || 'שגיאה בשליחת הטופס');
+            throw new Error(response.error || 'שגיאה בשליחת הטו��ס');
         }
     } catch (error) {
         console.error('Error:', error);
@@ -104,7 +126,7 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// פונקציה לשליחת הטופס ל-Google Apps Script
+// פונקציה לש��יחת הטופס ל-Google Apps Script
 async function submitForm(name, phone) {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwRhkxAIxBVnD6u2xh_yBfnJaOvjvn09QWDb8rIN_GybVHJ1YUNN24FhBF6JuiYB2AyqA/exec'; // החלף עם ה-URL שלך
     
@@ -178,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// פונקציית קונפטי
+// פונ��ציית קונפטי
 function createConfetti() {
     for (let i = 0; i < 50; i++) {
         const confetti = document.createElement('div');

@@ -1,10 +1,11 @@
 :root {
-    --primary-color: #2196F3;
-    --secondary-color: #1976D2;
+    --primary-color: #8B4513;
+    --secondary-color: #DEB887;
     --accent-color: #FF4081;
-    --background-color: #f8f9fa;
-    --text-color: #2c3e50;
-    --gradient: linear-gradient(135deg, #2196F3, #1976D2);
+    --background-color: #FAEBD7;
+    --text-color: #8B4513;
+    --gradient: linear-gradient(135deg, #8B4513, #DEB887);
+    --block-color: #4169E1;
 }
 
 * {
@@ -17,9 +18,10 @@ body {
     font-family: 'Heebo', sans-serif;
     background: var(--background-color);
     min-height: 100vh;
-    background-image: 
-        linear-gradient(120deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.9) 100%),
-        url('data:image/svg+xml,...');
+    background-image: url('./img/reka.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text-color);
     line-height: 1.6;
     direction: rtl;
@@ -29,12 +31,15 @@ body {
 }
 
 .container {
+    position: relative;
+    background: rgba(250, 235, 215, 0.9);
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    border-radius: 15px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
+    background: rgba(250, 235, 215, 0.9);
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     /* backdrop-filter: blur(10px); */
 }
@@ -44,23 +49,21 @@ header {
 }
 
 .logo-container {
-    margin-bottom: 2rem;
+    position: absolute;
+    left: 20px;
+    top: 20px;
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 120px;
     height: auto;
 }
 
 h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    position: relative;
-    display: inline-block;
+    font-size: 5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 @keyframes titleFloat {
@@ -69,67 +72,60 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: var(--primary-color);
     margin-bottom: 2rem;
 }
 
 .countdown-container {
-    background: white;
-    padding: 3rem;
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(33, 150, 243, 0.1);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 3rem;
-    padding-top: 2rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: transparent;
+    text-align: center;
 }
 
-.countdown-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: var(--gradient);
+.countdown-title {
+    color: #8B4513;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
 }
 
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .time-block {
-    position: relative;
-    padding: 2rem;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.time-block:hover {
-    transform: translateY(-5px);
+    background: var(--block-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .time-block span:first-child {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-size: 4rem;
+    font-weight: bold;
+    color: #8B4513;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 .time-block .label {
-    font-size: 1rem;
-    color: #666;
+    font-size: 1.4rem;
+    color: #8B4513;
+    display: block;
+    font-weight: 500;
 }
 
 .register-btn {
-    background: var(--gradient);
+    background: var(--primary-color);
     color: white;
-    padding: 1.2rem 4rem;
-    font-size: 1.3rem;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
     border-radius: 50px;
     border: none;
     cursor: pointer;
@@ -153,6 +149,11 @@ h2 {
 .register-btn:hover::before {
     transform: translateX(100%);
     transition: transform 0.6s ease;
+}
+
+.register-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
 }
 
 /* Modal Styles */
@@ -235,11 +236,31 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
     #countdown {
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
     }
     
-    .time-block span {
+    .time-block {
+        flex: 1 1 calc(50% - 1rem);
+        padding: 1rem;
+    }
+    
+    .time-block span:first-child {
         font-size: 2rem;
     }
 }
@@ -590,12 +611,12 @@ h1 span {
 } 
 
 .countdown-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     position: relative;
-    display: inline-block;
-    padding-bottom: 0.5rem;
 }
 
 .countdown-title::after {
@@ -608,4 +629,71 @@ h1 span {
     height: 3px;
     background: var(--gradient);
     border-radius: 2px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 235, 215, 0.7);
+    z-index: -1;
+}
+
+/* עיצוב התמונה של הכותרת */
+.title-image {
+    width: 100%;
+    max-width: 600px;
+    margin: -20px auto 0;
+    padding: 0;
+}
+
+.title-text {
+    margin-top: 60px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* עיצוב קונטיינר התאריך */
+.date-container {
+    background: #F4B95A;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 1rem auto;
+}
+
+.date-container h2 {
+    color: #8B4513;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .title-image {
+        max-width: 90%;
+    }
+    
+    .date-container {
+        padding: 0.5rem 1rem;
+    }
+    
+    .date-container h2 {
+        font-size: 1.2rem;
+    }
+    .title-text {
+        width: 100%;
+     
+    }
+    
 }
